@@ -5,7 +5,7 @@
     "namePrefix": {
       "type": "string",
       "minLength": 3,
-      "maxLength": 8,
+      "maxLength": 10,
       "metadata": {
         "description": "Naming prefix for each new resource created. 3-char min, 8-char max, lowercase alphanumeric."
       }
@@ -96,7 +96,7 @@
       "metadata": {
         "description": "Location of resources that the script is dependent on such as linked templates and DSC modules"
       },
-      "defaultValue": "https://sqlartifacts.blob.core.windows.net/sql"
+      "defaultValue": "https://raw.githubusercontent.com/hanu-IaaS/master/sql-server-2017-fci-existing-vnet-and-ad"
     },
     "_artifactsLocationSasToken": {
       "type": "securestring",
