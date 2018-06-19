@@ -11,6 +11,8 @@ This template creates the following resources:
 +   One internal load balancer
 +   One Standard Storage Account for the Cloud Witness
 
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+
 To deploy via the cli:
 ```bash
 az group deployment create --name deployfci --resource-group sqlfci01 --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
