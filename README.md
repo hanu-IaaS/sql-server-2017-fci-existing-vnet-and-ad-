@@ -11,7 +11,9 @@ This template creates the following resources:
 +   One internal load balancer
 +   One Standard Storage Account for the Cloud Witness
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+<a href="https://azuredeploy.net/?repository=https://github.com/hanu-IaaS/sql-server-2017-fci-existing-vnet-and-ad-" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
 To deploy via the cli:
 ```bash
