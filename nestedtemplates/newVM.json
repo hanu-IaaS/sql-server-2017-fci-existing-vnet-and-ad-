@@ -44,7 +44,7 @@
     "resources": [
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2016-04-30-preview",
+            "apiVersion": "2014-04-01-preview",
             "location": "[resourceGroup().location]",
             "name": "[parameters('vmName')]",
             "dependsOn": [],
