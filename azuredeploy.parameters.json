@@ -6,7 +6,7 @@
       "value": "GEN-UNIQUE-8"
     },
     "vmSize": {
-      "value": "Standard_D2s_v3"
+      "value": "Standard_DS14_v2"
     },
     "vmDiskSize": {
       "value": 1023
