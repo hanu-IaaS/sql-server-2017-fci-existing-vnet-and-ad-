@@ -108,7 +108,7 @@
     }
   },
   "variables": {
-    "apiVersionStorage": "providers(‘Microsoft.Storage’,’storageAccounts’).apiVersions[0]",
+    "apiVersionStorage": "2016-01-01",
     "witnessStorageName": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id),'cw')]",
     "witnessStorageType": "Standard_LRS",
     "vmNamePrefix": "[concat(parameters('namePrefix'),'-fci-')]",
@@ -133,7 +133,7 @@
     {
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[variables('vmAvailabilitySetName')]",
-      "apiVersion": "2017-12-01",
+      "apiVersion": "2016-04-30-preview",
       "location": "[resourceGroup().location]",
       "properties": {
         "platformFaultDomainCount": 2,
@@ -147,7 +147,7 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('witnessStorageName')]",
-      "apiVersion": "2018-03-01-preview",
+      "apiVersion": "2016-01-01",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "[variables('witnessStorageType')]"
@@ -235,7 +235,7 @@
       "name": "[concat(variables('vmNamePrefix'), copyindex(), '-nic')]",
         "type": "Microsoft.Network/networkInterfaces",
       "location": "[resourceGroup().location]",
-      "apiVersion": "2017-06-01",
+      "apiVersion": "2016-12-01",
       "copy": {
         "name": "nicLoop",
         "count": "[parameters('vmCount')]"
@@ -321,7 +321,7 @@
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmNamePrefix'),copyindex(1),'/sfciPrep')]",
-      "apiVersion": "2017-12-01",
+      "apiVersion": "2016-04-30-preview",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "virtualMachineLoop"
@@ -362,7 +362,7 @@
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmNamePrefix'),'0/sfciConfig')]",
-      "apiVersion": "2017-12-01",
+      "apiVersion": "2016-04-30-preview",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "virtualMachineLoop",
