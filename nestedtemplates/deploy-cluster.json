@@ -108,7 +108,7 @@
     }
   },
   "variables": {
-    "apiVersionStorage": "2018-04-01",
+    "apiVersionStorage": "2017-11-09",
     "witnessStorageName": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id),'cw')]",
     "witnessStorageType": "Standard_LRS",
     "vmNamePrefix": "[concat(parameters('namePrefix'),'-fci-')]",
@@ -133,7 +133,7 @@
     {
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[variables('vmAvailabilitySetName')]",
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2017-12-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "platformFaultDomainCount": 2,
@@ -147,7 +147,7 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('witnessStorageName')]",
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2017-10-01",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "[variables('witnessStorageType')]"
@@ -156,7 +156,7 @@
       "comments": "The storage account used for the SQL Cloud Witness"
     },
     {
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2017-10-01",
       "name": "[variables('ilbName')]",
       "type": "Microsoft.Network/loadBalancers",
       "location": "[resourceGroup().location]",
@@ -233,9 +233,9 @@
     },
     {
       "name": "[concat(variables('vmNamePrefix'), copyindex(), '-nic')]",
-      "type": "Microsoft.Network/networkInterfaces",
+        "type": "Microsoft.Network/networkInterfaces",
       "location": "[resourceGroup().location]",
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2017-10-01",
       "copy": {
         "name": "nicLoop",
         "count": "[parameters('vmCount')]"
@@ -265,7 +265,7 @@
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2017-05-10",
       "copy": {
         "name": "virtualMachineLoop",
         "count": "[parameters('vmCount')]"
@@ -321,7 +321,7 @@
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmNamePrefix'),copyindex(1),'/sfciPrep')]",
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2017-12-01",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "virtualMachineLoop"
@@ -362,7 +362,7 @@
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmNamePrefix'),'0/sfciConfig')]",
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2017-12-01",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "virtualMachineLoop",
